@@ -1,21 +1,26 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name) {
+Zombie::Zombie(std::string name)
+{
 	Zombie::setName(name);
 }
 
-Zombie::Zombie(const Zombie& other) {
-    *this = other;
+Zombie::Zombie(const Zombie &other)
+{
+	*this = other;
 }
 
-Zombie& Zombie::operator=(const Zombie& other) {
-    if (this != &other) {
-    }
-    return *this;
+Zombie &Zombie::operator=(const Zombie &other)
+{
+	if (this != &other)
+	{
+	}
+	return *this;
 }
 
-Zombie::~Zombie() {
-    
+Zombie::~Zombie()
+{
+	std::cout << m_name << " has been destroyed" << std::endl;
 }
 
 /**

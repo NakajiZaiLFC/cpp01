@@ -1,7 +1,14 @@
 #include "Zombie.hpp"
+#include "new"
 
-Zombie* newZombie(std::string name)
+Zombie *newZombie(const std::string name)
 {
-	Zombie *zombie = new Zombie(name);
-	return (zombie);
+	try
+	{
+		return (new Zombie(name));
+	}
+	catch (const std::bad_alloc &)
+	{
+		return (NULL);
+	}
 }
