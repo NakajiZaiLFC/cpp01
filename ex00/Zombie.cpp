@@ -5,7 +5,7 @@ Zombie::Zombie(std::string name)
 	Zombie::setName(name);
 }
 
-Zombie::Zombie(const Zombie &other)
+Zombie::Zombie(const Zombie &other) : m_name(other.m_name)
 {
 	*this = other;
 }
@@ -14,6 +14,7 @@ Zombie &Zombie::operator=(const Zombie &other)
 {
 	if (this != &other)
 	{
+		m_name = other.m_name;
 	}
 	return *this;
 }
