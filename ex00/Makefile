@@ -31,6 +31,7 @@ re: fclean all
 run:
 	$(MAKE) re
 	clear
-	valgrind --leak-check=full --show-leak-kinds=all -q ./$(NAME)
+	./$(NAME)
+# 	valgrind --leak-check=full --show-leak-kinds=all -q ./$(NAME)
 
 .PHONY: re clean fclean all run

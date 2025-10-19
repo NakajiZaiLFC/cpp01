@@ -36,7 +36,7 @@ void Zombie::setName(std::string name)
 
 std::string Zombie::getName(void) const
 {
-	return (m_name);
+	return m_name;
 }
 
 void Zombie::announce(void) const
