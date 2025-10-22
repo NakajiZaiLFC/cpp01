@@ -13,8 +13,7 @@ public:
 
 private:
 	std::string m_levelStrings[4];
-	void (Harl::*m_functions[4])(void);//!?
-	// Harl* functions[4];
+	void (Harl::*m_functions[4])(void);
     void debug(void);
 	void info(void);
 	void warning(void);
