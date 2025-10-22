@@ -1,0 +1,37 @@
+NAME := violence
+CXX := g++
+CFLAGS := -Wall -Werror -Wextra -std=c++98 -pedantic
+FILE := main.cpp \
+		Weapon.cpp \
+		HumanA.cpp \
+		HumanB.cpp
+OBJDIR := obj
+
+OBJ := $(addprefix $(OBJDIR)/, $(FILE:.cpp=.o))
+
+all: $(NAME)
+
+$(NAME): $(OBJDIR) $(OBJ)
+	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(OBJDIR)/%.o: %.cpp | $(OBJDIR)
+	$(CXX) $(CFLAGS) -I. -c $< -o $@
+
+clean:
+	rm -rf $(OBJDIR)
+
+fclean: clean
+	rm -rf $(NAME)
+
+re: fclean all
+
+run:
+	$(MAKE) re
+	clear
+	./$(NAME)
+# 	valgrind --leak-check=full --show-leak-kinds=all -q ./$(NAME)
+
+.PHONY: re clean fclean all run
