@@ -1,6 +1,6 @@
 NAME := zombie
-CXX := g++
-CFLAGS := -Wall -Werror -Wextra -std=c++98 -pedantic
+CXX := c++
+CXXFLAGS := -Wall -Werror -Wextra -std=c++98 -pedantic
 FILE := main.cpp \
 		Zombie.cpp \
 		zombieHorde.cpp
@@ -11,13 +11,13 @@ OBJ := $(addprefix $(OBJDIR)/, $(FILE:.cpp=.o))
 all: $(NAME)
 
 $(NAME): $(OBJDIR) $(OBJ)
-	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
 
 $(OBJDIR)/%.o: %.cpp | $(OBJDIR)
-	$(CXX) $(CFLAGS) -I. -c $< -o $@
+	$(CXX) $(CXXFLAGS) -I. -c $< -o $@
 
 clean:
 	rm -rf $(OBJDIR)
@@ -30,7 +30,6 @@ re: fclean all
 run:
 	$(MAKE) re
 	clear
-	./$(NAME)
-# 	valgrind --leak-check=full --show-leak-kinds=all -q ./$(NAME)
+	valgrind --leak-check=full --show-leak-kinds=all -q ./$(NAME)
 
 .PHONY: re clean fclean all run

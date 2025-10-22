@@ -2,6 +2,7 @@
 #include <sstream>
 #include <fstream>
 #include <string>
+#include <stdlib.h>
 
 static bool areArgumentsValid(int argc, const char *argv[])
 {
