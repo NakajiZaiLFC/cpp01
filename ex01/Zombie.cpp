@@ -5,11 +5,6 @@ Zombie::Zombie(void)
 
 }
 
-Zombie::Zombie(std::string name)
-{
-	Zombie::setName(name);
-}
-
 Zombie::Zombie(const Zombie &other) : m_name(other.m_name)
 {
 	*this = other;
